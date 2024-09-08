@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px 0; /* Reduce vertical padding */
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+h1 {
+  font-size: 5vw;
+}
