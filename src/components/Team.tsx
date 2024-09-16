@@ -50,7 +50,7 @@ const Team: React.FC<TeamProps> = ({ name, players, reverseOrder }) => {
                     >
                       <RemoveIcon sx={{ color: "#EA4141" }} />
                     </IconButton>
-                    {player.score}
+                    {player.score} pts
                     <IconButton
                       aria-label="add"
                       onClick={() => updateScore(index, POINTS)}
@@ -73,7 +73,7 @@ const Team: React.FC<TeamProps> = ({ name, players, reverseOrder }) => {
                     <IconButton onClick={() => updateScore(index, -POINTS)}>
                       <RemoveIcon sx={{ color: "#EA4141" }} />
                     </IconButton>
-                    {player.score}
+                    {player.score} pts
                     <IconButton onClick={() => updateScore(index, POINTS)}>
                       <AddIcon sx={{ color: "#56F35B" }} />
                     </IconButton>
