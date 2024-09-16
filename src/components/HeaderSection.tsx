@@ -1,17 +1,18 @@
 import { Stack, Button } from "@mui/material";
 
 export default function HeaderSection() {
-  const buttonText = "RESET";
+  const BUTTON_TEXT = "RESET";
+  const TITLE = "ScoreTracker";
   return (
     <Stack spacing={2} alignItems="center" justifyContent="center">
-      <h1> ScoreTracker</h1>
+      <h1> {TITLE}</h1>
       <Button
         variant="contained"
         color="error"
         size="large"
         sx={{ fontWeight: "bold" }}
       >
-        {buttonText}
+        {BUTTON_TEXT}
       </Button>
     </Stack>
   );

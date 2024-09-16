@@ -1,5 +1,16 @@
+import { Container, Divider, Stack } from "@mui/material";
 import "./App.css";
 import HeaderSection from "./components/HeaderSection";
+import Team from "./components/Team";
+
+const DEFAULT_TEAM = {
+  players: [
+    { name: "Player 1", score: 0 },
+    { name: "Player 2", score: 0 },
+    { name: "Player 3", score: 0 },
+    { name: "Player 4", score: 0 },
+  ],
+};
 
 function App() {
   return (
@@ -13,6 +24,23 @@ function App() {
       <header className="App-header">
         <HeaderSection />
       </header>
+      <Container maxWidth="lg">
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          divider={
+            <Divider
+              orientation="vertical"
+              variant="middle"
+              flexItem
+              sx={{ background: "white", fontWeight: "bold" }}
+            />
+          }
+        >
+          <Team name="Team 1" players={DEFAULT_TEAM.players} />
+          <Team name="Team 2" players={DEFAULT_TEAM.players} />
+        </Stack>
+      </Container>
     </div>
   );
 }
