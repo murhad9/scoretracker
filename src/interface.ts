@@ -6,4 +6,5 @@ export interface PlayerProps {
 export interface TeamProps {
   name: string;
   players: PlayerProps[];
+  reverseOrder: Boolean;
 }

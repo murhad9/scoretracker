@@ -37,8 +37,16 @@ function App() {
             />
           }
         >
-          <Team name="Team 1" players={DEFAULT_TEAM.players} />
-          <Team name="Team 2" players={DEFAULT_TEAM.players} />
+          <Team
+            name="Team 1"
+            players={DEFAULT_TEAM.players}
+            reverseOrder={false}
+          />
+          <Team
+            name="Team 2"
+            players={DEFAULT_TEAM.players}
+            reverseOrder={true}
+          />
         </Stack>
       </Container>
     </div>
