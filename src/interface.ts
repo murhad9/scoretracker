@@ -20,3 +20,7 @@ export interface TeamsState {
   team1: PlayerProps[];
   team2: PlayerProps[];
 }
+
+export interface HeaderSectionProps {
+  onResetScores: () => void;
+}

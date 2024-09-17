@@ -33,6 +33,13 @@ function App() {
     return players.reduce((total, player) => total + player.score, 0);
   };
 
+  const resetAllScores = () => {
+    setTeams((prevTeams) => ({
+      team1: prevTeams.team1.map((player) => ({ ...player, score: 0 })),
+      team2: prevTeams.team2.map((player) => ({ ...player, score: 0 })),
+    }));
+  };
+
   return (
     <Container maxWidth="lg" sx={{ minHeight: "100vh" }}>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +48,7 @@ function App() {
         href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap"
         rel="stylesheet"
       ></link>
-      <HeaderSection />
+      <HeaderSection onResetScores={resetAllScores} />
       <Stack
         direction="row"
         justifyContent="space-between"

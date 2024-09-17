@@ -1,8 +1,16 @@
 import { Stack, Button } from "@mui/material";
+import { HeaderSectionProps } from "../interface";
 
-export default function HeaderSection() {
+const HeaderSection: React.FC<HeaderSectionProps> = ({ onResetScores }) => {
   const BUTTON_TEXT = "RESET";
   const TITLE = "ScoreTracker";
+  const RESET_CONFIRMATION_TEXT = "Are you sure you want to reset all scores?";
+  const handleResetClick = () => {
+    const isConfirmed = window.confirm(RESET_CONFIRMATION_TEXT);
+    if (isConfirmed) {
+      onResetScores(); // Call the reset function if confirmed
+    }
+  };
   return (
     <Stack
       spacing={2}
@@ -16,9 +24,12 @@ export default function HeaderSection() {
         color="error"
         size="large"
         sx={{ fontWeight: "bold" }}
+        onClick={handleResetClick}
       >
         {BUTTON_TEXT}
       </Button>
     </Stack>
   );
-}
+};
+
+export default HeaderSection;
