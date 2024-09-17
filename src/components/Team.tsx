@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Box, Container, IconButton, ListItem, Stack } from "@mui/material";
+import {
+  Box,
+  Container,
+  IconButton,
+  ListItem,
+  Stack,
+  TextField,
+} from "@mui/material";
 import { TeamProps } from "../interface";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -10,20 +17,32 @@ const Team: React.FC<TeamProps> = ({
   reverseOrder,
   onPlayersUpdate,
 }) => {
-  const [playerScores, setPlayerScores] = useState(players);
+  const [playersInfo, setPlayerInfo] = useState(players);
   const POINTS = 10; // TODO: Make this value adjustable
 
   // Method to update player score
   const updateScore = (index: number, points: number) => {
-    const updatedPlayers = playerScores.map((player, i) =>
+    const updatedPlayers = playersInfo.map((player, i) =>
       i === index ? { ...player, score: player.score + points } : player
     );
-    setPlayerScores(updatedPlayers);
+    setPlayerInfo(updatedPlayers);
+    onPlayersUpdate(updatedPlayers);
+  };
+
+  // Method to update player score
+  const updateName = (index: number, newName: string) => {
+    const MAX_NAME_LENGTH = 15;
+    const updatedPlayers = playersInfo.map((player, i) =>
+      i === index
+        ? { ...player, name: newName.slice(0, MAX_NAME_LENGTH) }
+        : player
+    );
+    setPlayerInfo(updatedPlayers);
     onPlayersUpdate(updatedPlayers);
   };
 
   useEffect(() => {
-    setPlayerScores(players);
+    setPlayerInfo(players);
   }, [players]);
 
   return (
@@ -35,9 +54,9 @@ const Team: React.FC<TeamProps> = ({
     >
       <h2>{name}</h2>
       <Stack direction="column">
-        {playerScores.map((player, index) => (
+        {playersInfo.map((player, index) => (
           /* List of players with their scores */
-          <ListItem key={index}>
+          <ListItem key={index} disablePadding={true}>
             <Stack
               direction={"row"}
               fontSize={"clamp(2rem, 2.5vw, 5rem)"}
@@ -68,11 +87,56 @@ const Team: React.FC<TeamProps> = ({
                       <AddIcon sx={{ color: "#56F35B" }} />
                     </IconButton>
                   </Box>
-                  {player.name}
+                  <TextField
+                    value={player.name}
+                    onChange={(e) => updateName(index, e.target.value)}
+                    size="small"
+                    slotProps={{
+                      input: {
+                        inputProps: {
+                          style: {
+                            fontFamily: '"Micro 5", sans-serif',
+                            fontWeight: 400,
+                            fontSize: "clamp(2rem, 2vw, 5rem)",
+                            fontStyle: "normal",
+                            color: "white",
+                            textAlign: "right",
+                          },
+                        },
+                      },
+                    }}
+                    sx={{
+                      "& fieldset": {
+                        border: "none",
+                      },
+                    }}
+                  ></TextField>
                 </>
               ) : (
                 <>
-                  {player.name}
+                  <TextField
+                    value={player.name}
+                    onChange={(e) => updateName(index, e.target.value)}
+                    size="small"
+                    slotProps={{
+                      input: {
+                        inputProps: {
+                          style: {
+                            fontFamily: '"Micro 5", sans-serif',
+                            fontWeight: 400,
+                            fontSize: "clamp(2rem, 2vw, 5rem)",
+                            fontStyle: "normal",
+                            color: "white",
+                          },
+                        },
+                      },
+                    }}
+                    sx={{
+                      "& fieldset": {
+                        border: "none",
+                      },
+                    }}
+                  ></TextField>
                   <Box
                     sx={{
                       display: "flex",
