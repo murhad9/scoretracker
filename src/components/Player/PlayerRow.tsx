@@ -12,7 +12,8 @@ const PlayerRow: React.FC<PlayerRowProps> = ({
   updateName,
   reverseOrder,
 }) => {
-  const score = (
+  const POINTS = 10;
+  const PLAYER_SCORE = (
     <Box
       sx={{
         display: "flex",
@@ -20,34 +21,35 @@ const PlayerRow: React.FC<PlayerRowProps> = ({
         alignItems: "center",
       }}
     >
-      <IconButton aria-label="remove" onClick={() => updateScore(-10)}>
+      <IconButton aria-label="remove" onClick={() => updateScore(-POINTS)}>
         <RemoveIcon sx={{ color: "#EA4141" }} />
       </IconButton>
       {playerScore} pts
-      <IconButton aria-label="add" onClick={() => updateScore(10)}>
+      <IconButton aria-label="add" onClick={() => updateScore(POINTS)}>
         <AddIcon sx={{ color: "#56F35B" }} />
       </IconButton>
     </Box>
   );
+
+  const PLAYER_TEXT_FIELD = (
+    <PlayerTextField
+      name={playerName}
+      updateName={updateName}
+      reverseOrder={reverseOrder}
+    />
+  );
+
   return (
     <>
       {reverseOrder ? (
         <>
-          {score}
-          <PlayerTextField
-            name={playerName}
-            updateName={updateName}
-            reverseOrder={reverseOrder}
-          />
+          {PLAYER_SCORE}
+          {PLAYER_TEXT_FIELD}
         </>
       ) : (
         <>
-          <PlayerTextField
-            name={playerName}
-            updateName={updateName}
-            reverseOrder={reverseOrder}
-          />
-          {score}
+          {PLAYER_TEXT_FIELD}
+          {PLAYER_SCORE}
         </>
       )}
     </>

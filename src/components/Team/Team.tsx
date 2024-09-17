@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, ListItem, Stack } from "@mui/material";
+import {
+  Container,
+  ListItem,
+  Stack,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { TeamProps } from "../../interface";
 import PlayerRow from "../Player/PlayerRow";
 
@@ -34,6 +40,11 @@ const Team: React.FC<TeamProps> = ({
     setPlayerInfo(players);
   }, [players]);
 
+  // Adjust players display based on resolution and team
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const shouldReverseOrder = isMobile ? false : reverseOrder;
+
   return (
     <Container
       maxWidth={false}
@@ -47,18 +58,17 @@ const Team: React.FC<TeamProps> = ({
           /* List of players with their scores */
           <ListItem key={index} disablePadding={true}>
             <Stack
-              direction={"row"}
+              direction={{ xs: "column", sm: "row" }} // Adjust view to column when on smaller resolution
               fontSize={"clamp(2rem, 2.5vw, 5rem)"}
               width="100%"
               flexWrap="wrap"
-              alignItems={"center"}
             >
               <PlayerRow
                 playerName={player.name}
                 playerScore={player.score}
                 updateScore={(points) => updateScore(index, points)}
                 updateName={(e) => updateName(index, e.target.value)}
-                reverseOrder={reverseOrder}
+                reverseOrder={shouldReverseOrder}
               />
             </Stack>
           </ListItem>
