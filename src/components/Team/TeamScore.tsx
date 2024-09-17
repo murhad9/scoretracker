@@ -1,5 +1,5 @@
 import { Stack, Container } from "@mui/material";
-import { TeamScoreProps } from "../interface";
+import { TeamScoreProps } from "../../interface";
 
 const TeamScore: React.FC<TeamScoreProps> = ({
   firstTeamScore,

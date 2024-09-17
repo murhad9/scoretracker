@@ -1,10 +1,10 @@
 import { Container, Divider, Stack } from "@mui/material";
 import "./App.css";
 import HeaderSection from "./components/HeaderSection";
-import Team from "./components/Team";
+import Team from "./components/Team/Team";
 import { useState } from "react";
 import { PlayerProps, TeamsState } from "./interface";
-import TeamScore from "./components/TeamScore";
+import TeamScore from "./components/Team/TeamScore";
 
 export const DEFAULT_PLAYERS: PlayerProps[] = [
   { id: 1, name: "Player 1", score: 0 },

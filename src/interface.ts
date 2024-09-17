@@ -4,10 +4,24 @@ export interface PlayerProps {
   score: number;
 }
 
+export interface PlayerTextFieldProps {
+  name: string;
+  updateName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  reverseOrder: boolean;
+}
+
+export interface PlayerRowProps {
+  playerName: string;
+  playerScore: number;
+  updateScore: (points: number) => void;
+  updateName: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  reverseOrder: boolean;
+}
+
 export interface TeamProps {
   name: string;
   players: PlayerProps[];
-  reverseOrder: Boolean;
+  reverseOrder: boolean;
   onPlayersUpdate: (updatedPlayers: PlayerProps[]) => void;
 }
 
