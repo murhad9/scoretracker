@@ -1,30 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Container, IconButton, ListItem, Stack } from "@mui/material";
 import { TeamProps } from "../interface";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-const Team: React.FC<TeamProps> = ({ name, players, reverseOrder }) => {
+const Team: React.FC<TeamProps> = ({
+  name,
+  players,
+  reverseOrder,
+  onPlayersUpdate,
+}) => {
   const [playerScores, setPlayerScores] = useState(players);
   const POINTS = 10; // TODO: Make this value adjustable
 
   // Method to update player score
   const updateScore = (index: number, points: number) => {
-    setPlayerScores((prevPlayers) =>
-      prevPlayers.map((player, i) =>
-        i === index ? { ...player, score: player.score + points } : player
-      )
+    const updatedPlayers = playerScores.map((player, i) =>
+      i === index ? { ...player, score: player.score + points } : player
     );
+    setPlayerScores(updatedPlayers);
+    onPlayersUpdate(updatedPlayers);
   };
+
+  useEffect(() => {
+    setPlayerScores(players);
+  }, [players]);
 
   return (
     <Container
-      maxWidth="sm"
+      maxWidth={false}
       sx={{
         textAlign: "center",
       }}
     >
-      <h1>{name}</h1>
+      <h2>{name}</h2>
       <Stack direction="column">
         {playerScores.map((player, index) => (
           /* List of players with their scores */
@@ -34,6 +43,7 @@ const Team: React.FC<TeamProps> = ({ name, players, reverseOrder }) => {
               fontSize={"clamp(2rem, 2.5vw, 5rem)"}
               width="100%"
               flexWrap="wrap"
+              alignItems={"center"}
             >
               {reverseOrder ? (
                 <>
