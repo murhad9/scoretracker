@@ -8,7 +8,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ onResetScores }) => {
   const handleResetClick = () => {
     const isConfirmed = window.confirm(RESET_CONFIRMATION_TEXT);
     if (isConfirmed) {
-      onResetScores(); // Call the reset function if confirmed
+      onResetScores();
     }
   };
   return (

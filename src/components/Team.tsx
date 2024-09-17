@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Container,
-  IconButton,
-  ListItem,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Box, Container, IconButton, ListItem, Stack } from "@mui/material";
 import { TeamProps } from "../interface";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import PlayerTextField from "./PlayerTextField";
 
 const Team: React.FC<TeamProps> = ({
   name,
@@ -87,56 +81,19 @@ const Team: React.FC<TeamProps> = ({
                       <AddIcon sx={{ color: "#56F35B" }} />
                     </IconButton>
                   </Box>
-                  <TextField
-                    value={player.name}
-                    onChange={(e) => updateName(index, e.target.value)}
-                    size="small"
-                    slotProps={{
-                      input: {
-                        inputProps: {
-                          style: {
-                            fontFamily: '"Micro 5", sans-serif',
-                            fontWeight: 400,
-                            fontSize: "clamp(2rem, 2vw, 5rem)",
-                            fontStyle: "normal",
-                            color: "white",
-                            textAlign: "right",
-                          },
-                        },
-                      },
-                    }}
-                    sx={{
-                      "& fieldset": {
-                        border: "none",
-                      },
-                    }}
-                  ></TextField>
+                  <PlayerTextField
+                    name={player.name}
+                    updateName={(e) => updateName(index, e.target.value)}
+                    reverseOrder={reverseOrder}
+                  />
                 </>
               ) : (
                 <>
-                  <TextField
-                    value={player.name}
-                    onChange={(e) => updateName(index, e.target.value)}
-                    size="small"
-                    slotProps={{
-                      input: {
-                        inputProps: {
-                          style: {
-                            fontFamily: '"Micro 5", sans-serif',
-                            fontWeight: 400,
-                            fontSize: "clamp(2rem, 2vw, 5rem)",
-                            fontStyle: "normal",
-                            color: "white",
-                          },
-                        },
-                      },
-                    }}
-                    sx={{
-                      "& fieldset": {
-                        border: "none",
-                      },
-                    }}
-                  ></TextField>
+                  <PlayerTextField
+                    name={player.name}
+                    updateName={(e) => updateName(index, e.target.value)}
+                    reverseOrder={reverseOrder}
+                  />
                   <Box
                     sx={{
                       display: "flex",

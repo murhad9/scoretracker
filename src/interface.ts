@@ -7,7 +7,7 @@ export interface PlayerProps {
 export interface TeamProps {
   name: string;
   players: PlayerProps[];
-  reverseOrder: Boolean;
+  reverseOrder: boolean;
   onPlayersUpdate: (updatedPlayers: PlayerProps[]) => void;
 }
 
@@ -23,4 +23,10 @@ export interface TeamsState {
 
 export interface HeaderSectionProps {
   onResetScores: () => void;
+}
+
+export interface PlayerTextFieldProps {
+  name: string;
+  updateName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  reverseOrder: boolean;
 }
