@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import { PlayerTextFieldProps } from "../interface";
+import { PlayerTextFieldProps } from "../../interface";
 
 const PlayerTextField: React.FC<PlayerTextFieldProps> = ({
   name,
@@ -12,6 +12,7 @@ const PlayerTextField: React.FC<PlayerTextFieldProps> = ({
       value={name}
       onChange={updateName}
       size="small"
+      placeholder="Enter player name"
       slotProps={{
         input: {
           inputProps: {
