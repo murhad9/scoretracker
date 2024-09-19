@@ -1,5 +1,4 @@
 export interface PlayerProps {
-  id: number;
   name: string;
   score: number;
 }
@@ -13,7 +12,9 @@ export interface PlayerTextFieldProps {
 export interface PlayerRowProps {
   playerName: string;
   playerScore: number;
+  index: number;
   updateScore: (points: number) => void;
+  removePlayer: (index: number) => void;
   updateName: (event: React.ChangeEvent<HTMLInputElement>) => void;
   reverseOrder: boolean;
 }

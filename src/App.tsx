@@ -7,10 +7,10 @@ import { PlayerProps, TeamsState } from "./interface";
 import TeamScore from "./components/Team/TeamScore";
 
 export const DEFAULT_PLAYERS: PlayerProps[] = [
-  { id: 1, name: "Player 1", score: 0 },
-  { id: 2, name: "Player 2", score: 0 },
-  { id: 3, name: "Player 3", score: 0 },
-  { id: 4, name: "Player 4", score: 0 },
+  { name: "Player 1", score: 0 },
+  { name: "Player 2", score: 0 },
+  { name: "Player 3", score: 0 },
+  { name: "Player 4", score: 0 },
 ];
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ minHeight: "100vh" }}>
+    <Container maxWidth={false} sx={{ minHeight: "100vh", width: "80%" }}>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
