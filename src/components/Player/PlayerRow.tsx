@@ -20,7 +20,8 @@ const PlayerRow: React.FC<PlayerRowProps> = ({
     <Box
       sx={{
         display: "flex",
-        marginRight: "auto",
+        marginRight: reverseOrder ? "auto" : 0,
+        marginLeft: reverseOrder ? 0 : "auto",
         alignItems: "center",
       }}
     >
