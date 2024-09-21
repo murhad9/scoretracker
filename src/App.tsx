@@ -1,4 +1,10 @@
-import { Container, Divider, Stack } from "@mui/material";
+import {
+  Container,
+  Divider,
+  Stack,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import "./App.css";
 import HeaderSection from "./components/HeaderSection";
 import Team from "./components/Team/Team";
@@ -38,8 +44,15 @@ function App() {
     }));
   };
 
+  // Adjust container width based on resolution
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const containerWidth = isMobile ? "sm" : false;
   return (
-    <Container maxWidth={"lg"}>
+    <Container
+      maxWidth={containerWidth}
+      sx={{ width: isMobile ? "100%" : "80%" }}
+    >
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
