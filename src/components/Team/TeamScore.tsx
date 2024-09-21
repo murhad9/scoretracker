@@ -7,13 +7,20 @@ const TeamScore: React.FC<TeamScoreProps> = ({
 }) => {
   const TITLE = "Score";
   return (
-    <Container maxWidth="lg" sx={{ textAlign: "center" }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+        maxHeight: "200px",
+      }}
+    >
       <h1> {TITLE} </h1>
       <Stack
         direction={"row"}
-        marginTop={"-5rem"}
-        alignItems={"center"}
         justifyContent={"space-evenly"}
+        marginTop={"-5rem"}
       >
         <h1> {firstTeamScore} pts </h1>
         <h1> {secondTeamScore} pts </h1>
