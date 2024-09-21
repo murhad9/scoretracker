@@ -9,8 +9,6 @@ import TeamScore from "./components/Team/TeamScore";
 export const DEFAULT_PLAYERS: PlayerProps[] = [
   { name: "Player 1", score: 0 },
   { name: "Player 2", score: 0 },
-  { name: "Player 3", score: 0 },
-  { name: "Player 4", score: 0 },
 ];
 
 function App() {

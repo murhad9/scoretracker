@@ -54,17 +54,13 @@ const PlayerRow: React.FC<PlayerRowProps> = ({
       {reverseOrder ? (
         <>
           {PLAYER_SCORE}
-          <Stack direction={"row"}>
-            {PLAYER_TEXT_FIELD}
-            {REMOVE_BUTTON}
-          </Stack>
+          {PLAYER_TEXT_FIELD}
+          {REMOVE_BUTTON}
         </>
       ) : (
         <>
-          <Stack direction={"row"}>
-            {REMOVE_BUTTON}
-            {PLAYER_TEXT_FIELD}
-          </Stack>
+          {REMOVE_BUTTON}
+          {PLAYER_TEXT_FIELD}
           {PLAYER_SCORE}
         </>
       )}
