@@ -41,7 +41,7 @@ function App() {
   };
 
   return (
-    <Container maxWidth={false} sx={{ minHeight: "100vh", width: "80%" }}>
+    <Container maxWidth={"lg"}>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
@@ -78,10 +78,12 @@ function App() {
           }
         />
       </Stack>
-      <TeamScore
-        firstTeamScore={calculateTeamScore(teams.team1)}
-        secondTeamScore={calculateTeamScore(teams.team2)}
-      />
+      <Stack spacing={2} sx={{ mt: -3, alignItems: "center" }}>
+        <TeamScore
+          firstTeamScore={calculateTeamScore(teams.team1)}
+          secondTeamScore={calculateTeamScore(teams.team2)}
+        />
+      </Stack>
     </Container>
   );
 }

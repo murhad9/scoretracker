@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import PlayerTextField from "./PlayerTextField";
@@ -54,13 +54,17 @@ const PlayerRow: React.FC<PlayerRowProps> = ({
       {reverseOrder ? (
         <>
           {PLAYER_SCORE}
-          {PLAYER_TEXT_FIELD}
-          {REMOVE_BUTTON}
+          <Stack direction={"row"}>
+            {PLAYER_TEXT_FIELD}
+            {REMOVE_BUTTON}
+          </Stack>
         </>
       ) : (
         <>
-          {REMOVE_BUTTON}
-          {PLAYER_TEXT_FIELD}
+          <Stack direction={"row"}>
+            {REMOVE_BUTTON}
+            {PLAYER_TEXT_FIELD}
+          </Stack>
           {PLAYER_SCORE}
         </>
       )}
